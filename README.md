@@ -1,31 +1,25 @@
-# @PROJECT_NAME@
-@PROJECT_DESCRIPTION@
+# shushbin
+Binary translator from custom bytecode (shushexe) to Windows executable (PE format).
 
-## Build
+## Building
+Linux:
 ```shell
 mkdir build && cd build
-cmake .. # "-UBUILD_TESTS -DBUILD_TESTS=ON" to build tests, "-ULIBRARY_TYPE -DLIBRARY_TYPE=SHARED" for building shared library
+cmake .. # "-UBUILD_TESTS -DBUILD_TESTS=ON" to build tests.
 make
 ```
 
-## How to use THE LIBRARY
-Download the repository and place it into your project directory. In your project's CMakeLists.txt file, insert the following lines:
-```cmake
-...
-add_subdirectory(@PROJECT_NAME@)
-...
-target_link_libraries(${PROJECT_NAME} @PROJECT_NAME@)
-...
-```
+Windows:
+In Visual Studio 2017+ open folder with repository as a CMake Project.
+Add `-UBUILD_TESTS -DBUILD_TESTS=ON` to CMake args for building tests.
 
-## How to use THE EXECUTABLE
-```shell
-cd build
-./@PROJECT_NAME@
-```
+## How to use
+Run the built executable with the first arg set to file name of a file containing shush bytecode you want to translate.
+The program will produce a Windows executable named after the file processed. 
 
 ## Build documentation
 ```shell
 doxygen
 ```
+
 Documentation will be generated in the directory named `docs`.
