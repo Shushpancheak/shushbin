@@ -1,0 +1,3 @@
+[submodule "submodules/shushlang"]
+	path = submodules/shushlang
+	url = https://github.com/Shushpancheak/shushlang.git
