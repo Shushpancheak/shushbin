@@ -2,13 +2,6 @@
 Binary translator from custom bytecode (shushexe) to Windows executable (PE format).
 
 ## Building
-Linux:
-```shell
-mkdir build && cd build
-cmake .. # "-UBUILD_TESTS -DBUILD_TESTS=ON" to build tests.
-make
-```
-
 Windows:
 In Visual Studio 2017+ open folder with repository as a CMake Project.
 Add `-UBUILD_TESTS -DBUILD_TESTS=ON` to CMake args for building tests.
