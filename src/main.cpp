@@ -8,6 +8,7 @@
 #include "pe_translator/pe_support.hpp"
 #include "pe_translator/pe_translator.hpp"
 
+using shush::pe_trans::TranslationMode;
 using shush::error::ProgramErrorCode;
 using namespace shush::args_parser;
 
@@ -40,11 +41,17 @@ int main(int argc, const char** argv) {
   shush::pe_trans::SetExeExtension(out_file_path);
 
   FILE* file_in  = nullptr;
-  fopen_s(&file_in,  in_file_path, "r");
+  fopen_s(&file_in,  in_file_path, "rb");
   FILE* file_out = nullptr;
-  fopen_s(&file_out, out_file_path.AsCharArray(), "w");
+  fopen_s(&file_out, out_file_path.AsCharArray(), "wb");
 
-  //shush::pe_trans::Translator trans();
+  const TranslationMode mode = asm_arg->found ? TranslationMode::TRANSLATE_TO_ASM_CODE
+                                              : TranslationMode::TRANSLATE_TO_PE32;
+
+  shush::pe_trans::Translator trans(file_in, file_out, mode);
+  const auto error_code = trans.Translate();
+
+  assert(error_code == shush::pe_trans::TranslationError::NO_ERROR);
 
   fclose(file_in);
   fclose(file_out);

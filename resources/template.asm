@@ -20,7 +20,7 @@ includelib C:\masm32\lib\user32.lib
 
 .code
 start:
-  <START>
+  
   
   push 0
   call ExitProcess

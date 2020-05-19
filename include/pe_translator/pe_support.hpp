@@ -30,6 +30,15 @@ inline void SetExeExtension(shush::String& string) {
   }
 }
 
+inline long int GetFileSize(FILE* file) {
+  const long int prev = ftell(file);
+  fseek(file, 0, SEEK_END);
+  const long int size = ftell(file);
+  fseek(file, prev, SEEK_SET);
+
+  return size;
+}
+
 }
 
 #endif // PE_SUPPORT_HPP

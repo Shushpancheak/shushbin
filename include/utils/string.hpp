@@ -5,6 +5,8 @@
 #include <cassert>
 #include <cstring>
 
+#include "arithmetic.hpp"
+
 namespace shush {
 
 class String {
@@ -38,7 +40,7 @@ public:
     char* new_str = new char[new_size + 1];
 
     if (IsLoaded()) {
-      strcpy_s(new_str, std::min(strlen(str_), new_size) + 1, str_);
+      strcpy_s(new_str, arithm::Min(strlen(str_), new_size) + 1, str_);
       delete[] str_;
       str_ = new_str;
     }
