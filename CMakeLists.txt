@@ -13,10 +13,19 @@ project (
 )
 set (
   SOURCES
+  src/pe_translator.cpp
 )
 set (
   HEADERS
   include/error/program_error_codes.hpp
+  include/pe_translator/pe_translator.hpp
+  include/pe_translator/pe_support.hpp
+  include/pe_translator/instructions.hpp
+  include/utils/arguments_parser.hpp
+  include/utils/arithmetic.hpp
+  include/utils/string.hpp
+  include/utils/strings.hpp
+  include/utils/vector.hpp
 )
 
 include_directories(include)

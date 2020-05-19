@@ -13,7 +13,7 @@ const char INSTRUCTIONS_FILE[] = PATH_PREFIX "submodules/shushlang/inc/create_co
 const size_t MAX_INSTRUCTION_DESCRIPTION_LEN = 2048; // max chars in a line in create_commands
 
 const char   TEMPLATE_PE32_FILE_PATH[] = PATH_PREFIX "resources/nops_adv.exe";
-const size_t TEMPLATE_PE32_CODE_START  = 0x400;
+const size_t TEMPLATE_PE32_CODE_START  = 0x410;
 
 const char   TEMPLATE_ASM_FILE_PATH[]  = PATH_PREFIX "resources/template.asm";
 const size_t TEMPLATE_ASM_CODE_START   =   480;
@@ -140,7 +140,7 @@ private:
   /**
    * By given shush instruction info, generates an instruction in needed format.
    */
-  inst::ShushInstructionConverted ConvertInstruction(inst::ShushInstructionInfo* info);
+  inst::ShushInstructionConverted ConvertInstruction(inst::ShushInstructionInfo* info) const;
   /**
    * Parses current instruction pointed to py in file's indicator. Returns
    * ShushInstruction which holds all needed data, even the resulting opcodes.
