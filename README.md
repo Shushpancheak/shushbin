@@ -9,6 +9,11 @@ In the `resources` folder you can find a factorial.shushexe file, which is meant
 
 ## Building
 Windows:
+First of all, initialize all neccessary submodules by running the following command while you're in the root directory of the repository: 
+```shell
+git submodule init --recursive
+```
+
 In Visual Studio 2017+ open folder with repository as a CMake Project.
 Add `-UBUILD_TESTS -DBUILD_TESTS=ON` to CMake args for building tests.
 
