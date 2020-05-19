@@ -3,7 +3,7 @@
 
 #include "utils/string.hpp"
 
-namespace shush::trans {
+namespace shush::pe_trans {
 
 namespace detail {
 
@@ -18,13 +18,13 @@ inline void SetExeExtension(shush::String& string) {
   const size_t exe_len = strlen(detail::EXE_STR);
 
   if (str_len < exe_len) {
-    string.Resize(exe_len);
+    string.Resize(exe_len + 1);
     str = string.AsCharArray();
-    strcpy_s(str, exe_len, detail::EXE_STR);
+    strcpy_s(str, exe_len + 1, detail::EXE_STR);
   } else {
     strcpy_s(
       str + str_len - strlen(detail::SHUSHEXE_STR),
-      exe_len,
+      exe_len + 1,
       detail::EXE_STR
     );
   }

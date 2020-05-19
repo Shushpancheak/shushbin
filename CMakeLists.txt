@@ -29,7 +29,6 @@ add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS} src/main.cpp)
 
 set(BUILD_TESTS OFF CACHE BOOL "Build tests")
 if (BUILD_TESTS)
-
 add_subdirectory(submodules/googletest)
 include_directories(submodules/googletest/googletest/include)
 

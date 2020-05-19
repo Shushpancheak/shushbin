@@ -1,10 +1,15 @@
 #ifndef PE_TRANSLATOR_HPP
 #define PE_TRANSLATOR_HPP
 
-namespace shush::trans {
+#include "pe_support.hpp"
+
+namespace shush::pe_trans {
 
 class Translator {
-  
+public:
+
+private:
+
 };
 
 }

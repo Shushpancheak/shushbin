@@ -35,10 +35,10 @@ public:
   void Resize(const size_t new_size) {
     assert(!is_static_);
 
-    char* new_str = new char[new_size];
+    char* new_str = new char[new_size + 1];
 
     if (IsLoaded()) {
-      strcpy_s(new_str, std::min(strlen(str_), new_size), str_);
+      strcpy_s(new_str, std::min(strlen(str_), new_size) + 1, str_);
       delete[] str_;
       str_ = new_str;
     }
@@ -57,8 +57,8 @@ public:
     }
 
     const size_t str_size = strlen(source_str);
-    str_ = new char[str_size];
-    strcpy_s(str_, str_size, source_str);
+    str_ = new char[str_size + 1];
+    strcpy_s(str_, str_size + 1, source_str);
 
     loaded_ = true;
     is_static_ = false;
